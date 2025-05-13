@@ -10,20 +10,23 @@ namespace Telenor.step_definitions
     public class telenor_steps
     {
         static string chromedriver_path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\.."));
-        static protected IWebDriver driver = new ChromeDriver(chromedriver_path + "\\chromedriver136_0_7103_92");
-        static HomePage home_page = new HomePage(driver);
-        static BredbandPage bredband_page = new BredbandPage(driver);
+        static protected IWebDriver driver;
+        static HomePage home_page;
+        static BredbandPage bredband_page;
 
-        [BeforeFeature]
-        static public void InitFeature()
+        [BeforeScenario]
+        static public void InitScenario()
         {
+            driver = new ChromeDriver(chromedriver_path + "\\chromedriver136_0_7103_92");
+            home_page = new HomePage(driver);
+            bredband_page = new BredbandPage(driver);
             Thread.Sleep(3000); //give chromedriver a few seconds to start
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
 
-        [AfterFeature]
-        static public void TearDownFeature()
+        [AfterScenario]
+        static public void TearDownScenario()
         {
             driver.Close();
             driver.Quit();
@@ -48,24 +51,22 @@ namespace Telenor.step_definitions
             home_page.bredband_link.Click();
         }
 
-        [When(@"I search for products at an apartment address")]
-        public void WhenISearchForProductsAtAnApartmentAddress()
+        [When(@"I search for products at the ""(.*)"" address")]
+        public void WhenISearchForProductsAtTheAddress(string address)
         {
-            bredband_page.address_input.SendKeys("Storgatan 1, Uppsala");
-            bredband_page.SelectAddress("Storgatan 1, Uppsala");
+            bredband_page.address_input.SendKeys(address);
         }
 
-        [When(@"I search for products at a non-apartment address")]
-        public void WhenISearchForProductsAtANonApartmentAddress()
+        [When(@"select the ""(.*)"" address")]
+        public void WhenSelectTheAddress(string full_address)
         {
-            bredband_page.address_input.SendKeys("Storgatan 10, Uppsala");
-            bredband_page.SelectAddress("Storgatan 10, Uppsala");
+            bredband_page.SelectAddress(full_address);
         }
 
-        [When(@"I select my apartment from the list")]
-        public void WhenISelectMyApartmentFromTheList()
+        [When(@"I select ""(.*)"" from the apartment list")]
+        public void WhenISelectFromTheApartmentList(string apartment)
         {
-            bredband_page.SelectApartmentNumber("0004");
+            bredband_page.SelectApartmentNumber(apartment);
         }
 
         [Then(@"the 5G internet product should be displayed")]
@@ -76,6 +77,14 @@ namespace Telenor.step_definitions
 
             Assert.GreaterOrEqual(product_list_items.Count, 0);
             Assert.IsTrue(fiveG_product_displayed);
+        }
+
+        [Then(@"all 6 products should be displayed")]
+        public void ThenAll6ProductsShouldBeDisplayed()
+        {
+            var product_list_items = bredband_page.product_list.FindElements(By.TagName("li"));
+
+            Assert.AreEqual(product_list_items.Count, 6);
         }
 
     }
