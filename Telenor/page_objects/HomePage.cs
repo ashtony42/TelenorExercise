@@ -9,7 +9,6 @@ namespace PageObjectModel.Source.Pages
         private IWebDriver _driver;
         [FindsBy(How = How.Id, Using = "onetrust-accept-btn-handler")] public IWebElement accept_all_cookies_button;
         [FindsBy(How = How.XPath, Using = "//a[@href='/handla/']")] public IWebElement handla_menu;
-      //  [FindsBy(How = How.XPath, Using = "//*[@id='tn-page-layout']/div/header/nav/div/div/ul/li[3]/a")] public IWebElement bredband_link;
         [FindsBy(How = How.XPath, Using = "//div[@class='tn-page-header__slide-down']//a[@href='/handla/bredband/'][@class='cnt-link tn-page-header__sub-item__link']")] public IWebElement bredband_link;
 
         public HomePage(IWebDriver driver)

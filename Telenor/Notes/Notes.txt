@@ -9,14 +9,10 @@ Navigation tests should be their own family of tests to assert that each navigat
 
 Does this website use a microservice architecture where different pages are managed by different teams?
 
-Possible bugs to report:
--Periodically when navigating to telenor.se, the page refuses to display
-  -Possibly due to anti-spamming efforts
-  -Makes sense for production, but if this suite gets large, we will need to ensure it's disabled in Test environments.
-  -Might just be a Selenium race condition for when it's starting up.
+Randomization issue to report:
 -Sometimes, the 5g product, in fact, does not appear
   -Instead, a prompt for choosing your apartment number is selected
-  -This is likely due to one of the random locations in fact, having multiple appartments to choose from
+  -This is due to one of the random locations, in fact, having multiple appartments to choose from
   -This is another reason why you don't do randomization, but instead create a separate scenario.
 
 TODO:
