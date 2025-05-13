@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Telenor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+913d273a4c29167ff92eb46b81826d3d56642f23")]
 [assembly: System.Reflection.AssemblyProductAttribute("Telenor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Telenor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

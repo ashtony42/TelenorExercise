@@ -62,6 +62,12 @@ namespace Telenor.step_definitions
             bredband_page.SelectAddress("Storgatan 10, Uppsala");
         }
 
+        [When(@"I select my apartment from the list")]
+        public void WhenISelectMyApartmentFromTheList()
+        {
+            bredband_page.SelectApartmentNumber("0004");
+        }
+
         [Then(@"the 5G internet product should be displayed")]
         public void ThenThe5GInternetProductShouldBeDisplayed()
         {

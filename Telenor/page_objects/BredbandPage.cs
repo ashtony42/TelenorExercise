@@ -42,5 +42,13 @@ namespace PageObjectModel.Source.Pages
             Wait(_driver).Until(driver => address_list.Displayed);
             address_list.FindElement(By.XPath($"//li[text()='{address}']")).Click(); ;
         }
+
+        public void SelectApartmentNumber(string apartment_number)
+        {
+            SelectElement apartment_select = new SelectElement(apartment_number_select);
+            apartment_select.SelectByText(apartment_number);
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor) _driver;
+            jsExecutor.ExecuteScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }))", apartment_number_select);
+        }
     }
 }

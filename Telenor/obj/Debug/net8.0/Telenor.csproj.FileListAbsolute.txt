@@ -119,3 +119,4 @@ C:\Users\a_fre\Desktop\TelenorExercise\Telenor\Telenor\bin\Debug\net8.0\System.C
 C:\Users\a_fre\Desktop\TelenorExercise\Telenor\Telenor\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\a_fre\Desktop\TelenorExercise\Telenor\Telenor\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\a_fre\Desktop\TelenorExercise\Telenor\Telenor\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\a_fre\Desktop\TelenorExercise\Telenor\Telenor\obj\Debug\net8.0\Telenor.sourcelink.json
